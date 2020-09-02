@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "light-server -s \"./src/\" -w \"./src/**/*.*\" -o"
+  },
+  "devDependencies": {
+    "light-server": "^2.8.0"
+  }
+}

@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .form-group input {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+body .form-group input:hover {
+  cursor: copy;
+}
+
+body .form-group input:active {
+  background-color: #dddddd;
+}
+
+body .form-group small {
+  color: #6b6b6b;
+  height: 10px;
+}
+/*# sourceMappingURL=index.css.map */
