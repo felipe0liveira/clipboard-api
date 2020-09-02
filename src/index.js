@@ -1,31 +1,33 @@
 (() => {
-  const codeInput = document.querySelector("#code");
-  const messageSmall = document.querySelector("#message");
+  const codeInput = document.querySelector('#code');
+  const messageSmall = document.querySelector('#message');
 
-  codeInput.value = "1234-5678-9101112-0";
+  codeInput.value = '1234-5678-9101112-0';
 
   const showMessage = (message) => {
     messageSmall.innerHTML = message;
     setTimeout(() => {
-      messageSmall.innerHTML = "";
+      messageSmall.innerHTML = '';
     }, 1500);
   };
 
-  codeInput.addEventListener("click", (e) => {
+  const copyTextToClipboard = (event) => {
     const dataToClipboard = codeInput.value;
     const data = [
       new ClipboardItem({
-        "text/plain": new Blob([dataToClipboard], { type: "text/plain" }),
+        'text/plain': new Blob([dataToClipboard], { type: 'text/plain' }),
       }),
     ];
 
     navigator.clipboard.write(data).then(
       () => {
-        showMessage("COPIED!");
+        showMessage('COPIED!');
       },
       () => {
-        showMessage("Unable to write to clipboard. :-(");
+        showMessage('Unable to write to clipboard. :-(');
       }
     );
-  });
+  };
+
+  codeInput.addEventListener('click', copyTextToClipboard);
 })();
