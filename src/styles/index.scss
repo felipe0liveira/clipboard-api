@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -10,18 +12,24 @@ body {
   justify-content: center;
   align-items: center;
 
+  font-family: 'Montserrat', sans-serif;
+
   .form-group {
     display: flex;
     flex-direction: column;
     align-items: center;
 
     input {
+      width: 100%;
       padding: 10px 15px;
 
       text-align: center;
+      font-family: 'Montserrat', sans-serif;
 
       &:hover {
         cursor: copy;
+        border-style: dashed;
+        border-color: #dddddd;
       }
 
       &:active {
@@ -30,8 +38,9 @@ body {
     }
 
     small {
-        color: #6b6b6b;
-        height: 10px;
+      margin-top: 10px;
+      color: #6b6b6b;
+      height: 10px;
     }
   }
 }

@@ -2,32 +2,32 @@
   const codeInput = document.querySelector('#code');
   const messageSmall = document.querySelector('#message');
 
-  codeInput.value = '1234-5678-9101112-0';
+  const r = () => {
+    return parseInt(Math.random() * (9999 - 1111) + 1111);
+  };
 
   const showMessage = (message) => {
     messageSmall.innerHTML = message;
-    setTimeout(() => {
-      messageSmall.innerHTML = '';
-    }, 1500);
+    setTimeout(() => (messageSmall.innerHTML = ''), 1500);
   };
 
-  const copyTextToClipboard = (event) => {
-    const dataToClipboard = codeInput.value;
-    const data = [
-      new ClipboardItem({
-        'text/plain': new Blob([dataToClipboard], { type: 'text/plain' }),
-      }),
-    ];
+  const copyTextToClipboard = async (e) => {
+    try {
+      const dataToClipboard = codeInput.value;
+      const data = [
+        new ClipboardItem({
+          'text/plain': new Blob([dataToClipboard], { type: 'text/plain' }),
+        }),
+      ];
 
-    navigator.clipboard.write(data).then(
-      () => {
-        showMessage('COPIED!');
-      },
-      () => {
-        showMessage('Unable to write to clipboard. :-(');
-      }
-    );
+      await navigator.clipboard.write(data);
+      showMessage('copied!');
+    } catch (error) {
+      showMessage('Unable to write to clipboard. :-(');
+      console.error('Unable to write to clipboard', { error });
+    }
   };
 
+  codeInput.value = `${r()}.${r()}.${r()}.${r()}-${r()}`;
   codeInput.addEventListener('click', copyTextToClipboard);
 })();
